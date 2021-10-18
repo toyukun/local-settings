@@ -1,0 +1,16 @@
+version: "3"
+services:
+  db:
+    image: mysql:8.0
+    volumes:
+      - ./conf/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./data:/var/lib/mysql
+      - ./logs:/var/log/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - TZ=Asia/Tokyo
+    ports:
+      - 3306:3306 # ホストポート:コンテナポート
+    container_name: mysql8-container
+
+
